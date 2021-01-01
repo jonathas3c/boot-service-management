@@ -1,5 +1,7 @@
 package io.github.jonathas3c.clientes.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -29,7 +31,7 @@ public class ClienteController {
 	
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	public Cliente saveCliente( @RequestBody Cliente cliente) {
+	public Cliente saveCliente( @RequestBody @Valid Cliente cliente) {
 		return clienteRepository.save(cliente);
 	}
 	
